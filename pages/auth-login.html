@@ -15,6 +15,8 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/vendors/css/extensions/sweetalert2.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -22,6 +24,9 @@
     <link rel="stylesheet" type="text/css" href="../app-assets/css/bootstrap-extended.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css/colors.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="../app-assets/css/core/menu/menu-types/vertical-menu.css">
@@ -29,6 +34,13 @@
     <link rel="stylesheet" type="text/css" href="../app-assets/css/pages/authentication.css">
     
     <!-- END: Page CSS-->
+
+    <!-- Vendor files -->
+
+    <link rel="stylesheet" type="text/css" href="sweetalert2.min.css">
+
+    <!-- Template files -->
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/plugins/extensions/ext-component-sweet-alerts.css">
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../app-assets/css/style.css">
@@ -65,36 +77,51 @@
                         <!-- /Brand logo-->
                         <!-- Left Text-->
                         <div class="d-none d-lg-flex col-lg-8 align-items-center p-0">
-                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img_login" src="../app-assets/images/ico/img_login.png" alt="Login V2" /></div>
+                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img_login" src="../app-assets/images/ico/img-login.png" alt="Login V2" /></div>
                         </div>
                         <!-- /Left Text-->
                         <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <h2 class="card-title fw-bold mb-1"><b>Bienvenido al sistema de egresados</b> de la Universidad Mariana</h2>
+                                <h2 class="card-title fw-bold mb-1 text-primary"><b>Bienvenido al sistema de egresados</b> de la Universidad Mariana</h2>
                                 <p class="card-text mb-2">Ingresa tu usuario y contraseña para acceder.</p>
-                                <form class="auth-login-form mt-2" action="index.html" method="POST" novalidate>
+                                <form class="needs-validation mt-2" novalidate action="#" method="POST">
                                     <div class="mb-1">
-                                        <select class="form-select" id="basicSelect" id="login-type" name="login-type">
-                                            <option selected>Tipo de documento</option>
-                                          <option>uno</option>
-                                          <option>dos</option>
-                                          <option>tres</option>
-                                        </select>
-                                      </div>
-                                    <div class="mb-1">
-                                        <input class="form-control" id="login-document" type="number" name="login-document" placeholder="Número de Documento" aria-describedby="login-document" tabindex="2" />
-                                        <div class="invalid-feedback">Por favor ingrese el número de su documento</div>
+                                        <div class="input-group input-group-merge" id="select">
+                                            <span class="input-group-text"><i data-feather="user"></i></span>
+                                            <select class="form-control border-end input-border rounded-end" required>
+                                                <option value="">Tipo de Documento</option>
+                                                <option>CC</option>
+                                                <option>TI</option>
+                                                <option>CE</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Seleccione un tipo de documento
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="mb-1">
-                                        <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="login-password" type="password" name="login-password" placeholder="Contraseña" aria-describedby="login-password" tabindex="3" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                        <div class="input-group input-group-merge">
+                                            <span class="input-group-text"><i data-feather='hash'></i></span>
+                                            <input type="number" class="form-control border-end input-border rounded-end" aria-describedby="validationServer05Feedback" placeholder="Número de Documento" required>
+                                            <div id="validationServer05Feedback" class="invalid-feedback">
+                                                Ingrese un número de documento .
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-1">
+                                        <div class="input-group input-group-merge">
+                                            <span class="input-group-text"><i data-feather="lock"></i></span>
+                                            <input type="password" class="form-control border-end input-border rounded-end" value="Mark" required>
+                                            <div class="invalid-feedback">
+                                                Algo está mal
+                                            </div>
                                         </div>
                                         <div class="d-flex justify-content-end">
                                             <a href="auth-forgot-password.html"><small>Recuperar contraseña</small></a>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="4">Ingresar</button>
+                                    <button type="submit" class="btn btn-primary w-100" tabindex="4">Ingresar</button>
                                 </form>
                                 <p class="text-center mt-2"><span>¿No tienes una cuenta?</span><a href="auth-register.html"><span>&nbsp;Créala ahora</span></a></p>
                             </div>
@@ -114,6 +141,7 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -124,7 +152,22 @@
     <!-- BEGIN: Page JS-->
     <script src="../app-assets/js/scripts/pages/auth-login.js"></script>
     <!-- END: Page JS-->
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
 
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Cambia tu contraseña',
+            text: 'Por tu seguridad es necesario crear una nueva contraseña, recuerda siempre mantenerla segura.',
+            type: 'info',
+            confirmButtonText: 'Aceptar',
+            customClass: {
+            confirmButton: 'btn btn-primary'
+            },
+            buttonsStyling: false
+        })
+    </script>
     <script>
         $(window).on('load', function() {
             if (feather) {
@@ -134,6 +177,58 @@
                 });
             }
         })
+    </script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        const input_groups = document.querySelectorAll('.input-group');
+        
+        for (var i = 0; i < input_groups.length; i++) {
+            console.log(input_groups[i]);
+            const input = input_groups[i].querySelector('input');
+            const select = input_groups[i].querySelector('select');
+            if (input) {
+                if (input?.value == '') {
+                    input_groups[i].classList.remove('is-valid');
+                    input_groups[i].classList.add('is-invalid');
+                    input.classList.add('rounded-end','border-danger', 'ps-75');
+                } else {
+                    input_groups[i].classList.remove('is-invalid');
+                    input_groups[i].classList.add('is-valid');
+                    input.classList.remove('border-danger');
+                    input.classList.add('border-success', 'ps-75');
+                }
+            } else if (select) {
+                if (select?.value == '') {
+                    input_groups[i].classList.remove('is-valid');
+                    input_groups[i].classList.add('is-invalid');
+                    select.classList.add('rounded-end','border-danger', 'ps-75');
+                } else {
+                    input_groups[i].classList.remove('is-invalid');
+                    input_groups[i].classList.add('is-valid');
+                    select.classList.remove('rounded-end','border-danger', 'ps-75');
+                    select.classList.add('border-success', 'ps-75');
+                }
+            }
+        }
+      }, false)
+    })
+    })()
     </script>
 </body>
 <!-- END: Body-->

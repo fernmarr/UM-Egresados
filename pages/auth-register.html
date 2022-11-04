@@ -30,10 +30,11 @@
     <link rel="stylesheet" type="text/css" href="../app-assets/css/core/menu/menu-types/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css/plugins/forms/form-validation.css">
     <link rel="stylesheet" type="text/css" href="../app-assets/css/pages/authentication.css">
+    
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../app-assets/css/style.css">
     <!-- END: Custom CSS-->
 
 </head>
@@ -41,7 +42,7 @@
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
+<body class="bg-white vertical-layout vertical-menu-modern blank-page navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="blank-page">
     <!-- BEGIN: Content-->
     <div class="app-content content ">
         <div class="content-overlay"></div>
@@ -52,48 +53,65 @@
             <div class="content-body">
                 <div class="auth-wrapper auth-cover">
                     <div class="auth-inner row m-0">
-                        <!-- Brand logo--><a class="brand-logo" href="auth-login.html">
-                            
-                        </a>
+                        <!-- Brand logo-->
+                        <header class="header_login">
+                            <nav>
+                                <h1>
+                                    <a href="index.html">
+                                        <img src="../app-assets/images/ico/img_logo_unimariana.png" alt="Universidad Mariana">
+                                        <span class="separate"></span>
+                                        <img src="../app-assets/images/ico/img_logo_egresados.png" alt="Comité de Egresados Universidad Mariana">
+                                    </a>
+                                </h1>
+                            </nav>
+                        </header>
                         <!-- /Brand logo-->
                         <!-- Left Text-->
-                        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="../app-assets/images/pages/register-v2.svg" alt="Register V2" /></div>
+                        <div class="d-none d-lg-flex col-lg-8 align-items-center p-0">
+                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img_login" src="../app-assets/images/ico/img-login.png" alt="Login V2" /></div>
                         </div>
                         <!-- /Left Text-->
-                        <!-- Register-->
+                        <!-- Login-->
                         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <h2 class="card-title fw-bold mb-1">Adventure starts here 🚀</h2>
-                                <p class="card-text mb-2">Make your app management easy and fun!</p>
-                                <form class="auth-register-form mt-2" action="auth-login.html" method="POST">
+                                <h2 class="card-title fw-bold mb-1 text-primary"><b>¿Aún no tienes una cuenta?</b></h2>
+                                <p class="card-text mb-2">Créala diligenciando el siguiente formulario.</p>
+                                <form class="needs-validation mt-2" novalidate action="#" method="POST">
                                     <div class="mb-1">
-                                        <label class="form-label" for="register-username">Username</label>
-                                        <input class="form-control" id="register-username" type="text" name="register-username" placeholder="johndoe" aria-describedby="register-username" autofocus="" tabindex="1" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="register-email">Email</label>
-                                        <input class="form-control" id="register-email" type="text" name="register-email" placeholder="john@example.com" aria-describedby="register-email" tabindex="2" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="register-password">Password</label>
-                                        <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="register-password" type="password" name="register-password" placeholder="············" aria-describedby="register-password" tabindex="3" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                        <div class="input-group input-group-merge" id="select">
+                                            <span class="input-group-text"><i data-feather="user"></i></span>
+                                            <select class="form-control border-end input-border rounded-end" required>
+                                                <option value="">Tipo de Documento</option>
+                                                <option>CC</option>
+                                                <option>TI</option>
+                                                <option>CE</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Seleccione un tipo de documento
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="mb-1">
-                                        <div class="form-check">
-                                            <input class="form-check-input" id="register-privacy-policy" type="checkbox" tabindex="4" />
-                                            <label class="form-check-label" for="register-privacy-policy">I agree to<a href="#">&nbsp;privacy policy & terms</a></label>
+                                        <div class="input-group input-group-merge">
+                                            <span class="input-group-text"><i data-feather='hash'></i></span>
+                                            <input type="number" class="form-control border-end input-border rounded-end" aria-describedby="validationServer05Feedback" placeholder="Número de Documento" required>
+                                            <div id="validationServer05Feedback" class="invalid-feedback">
+                                                Ingrese un número de documento .
+                                            </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary w-100" tabindex="5">Sign up</button>
+                                    <div class="row justify-content-between">
+                                        <div class="col-md-6">
+                                            <a href="auth-login.html" class="btn w-100 btn-link text-primary" tabindex="4"><i data-feather='chevron-left'></i>Regresar</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="submit" class="btn btn-primary w-100" tabindex="4">Continuar</button>
+                                        </div>
+                                    </div>
                                 </form>
-                                <p class="text-center mt-2"><span>Already have an account?</span><a href="auth-login.html"><span>&nbsp;Sign in instead</span></a></p>
-                                
                             </div>
                         </div>
-                        <!-- /Register-->
+                        <!-- /Login-->
                     </div>
                 </div>
             </div>
@@ -116,7 +134,7 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="../app-assets/js/scripts/pages/auth-register.js"></script>
+    <script src="../app-assets/js/scripts/pages/auth-login.js"></script>
     <!-- END: Page JS-->
 
     <script>
@@ -128,6 +146,58 @@
                 });
             }
         })
+    </script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        const input_groups = document.querySelectorAll('.input-group');
+        
+        for (var i = 0; i < input_groups.length; i++) {
+            console.log(input_groups[i]);
+            const input = input_groups[i].querySelector('input');
+            const select = input_groups[i].querySelector('select');
+            if (input) {
+                if (input?.value == '') {
+                    input_groups[i].classList.remove('is-valid');
+                    input_groups[i].classList.add('is-invalid');
+                    input.classList.add('rounded-end','border-danger', 'ps-75');
+                } else {
+                    input_groups[i].classList.remove('is-invalid');
+                    input_groups[i].classList.add('is-valid');
+                    input.classList.remove('border-danger');
+                    input.classList.add('border-success', 'ps-75');
+                }
+            } else if (select) {
+                if (select?.value == '') {
+                    input_groups[i].classList.remove('is-valid');
+                    input_groups[i].classList.add('is-invalid');
+                    select.classList.add('rounded-end','border-danger', 'ps-75');
+                } else {
+                    input_groups[i].classList.remove('is-invalid');
+                    input_groups[i].classList.add('is-valid');
+                    select.classList.remove('rounded-end','border-danger', 'ps-75');
+                    select.classList.add('border-success', 'ps-75');
+                }
+            }
+        }
+      }, false)
+    })
+    })()
     </script>
 </body>
 <!-- END: Body-->
